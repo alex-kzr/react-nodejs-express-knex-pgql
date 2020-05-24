@@ -1,0 +1,2 @@
+CREATE DATABASE thingy;
+CREATE DATABASE todo_db;
