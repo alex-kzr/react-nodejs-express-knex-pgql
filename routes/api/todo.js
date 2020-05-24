@@ -37,5 +37,11 @@ router.delete('/:id', function(req, res){
     });
 });
 
+router.get('/:id', function(req, res){
+    db('todo').where({ id: req.params.id }).select().then(function(data){
+        res.send(data);
+    });
+});
+
 
 module.exports = router;
