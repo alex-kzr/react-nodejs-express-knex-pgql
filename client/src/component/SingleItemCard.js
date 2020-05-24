@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SingleItemCardElements from './SingleItemCardElements';
+import CreateEditItem from './CreateEditItem';
 
 class SingleItemCard extends Component {
     constructor(props){
@@ -22,7 +23,7 @@ class SingleItemCard extends Component {
         const { title, isDone } = this.state;
         if(this.state.editing){
             return(
-                <div>Editing ...</div>
+                <CreateEditItem />
             );
         }
         return(
