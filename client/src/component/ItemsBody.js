@@ -38,7 +38,7 @@ class ItemsBody extends Component {
     renderTodos() {
         return _.map(this.state.todos, todo => {
             return(
-                <ListItem title={todo.title} isDone={todo.is_done} />
+                <ListItem title={todo.title} isDone={todo.is_done} id={todo.id} />
             );
         });
     }
