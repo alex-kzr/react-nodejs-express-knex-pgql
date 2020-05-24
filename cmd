@@ -13,3 +13,6 @@ GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO todo_db_admin;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO todo_db_admin;
 
 npm i --save body-parser
+
+npm install -g create-react-app // -g needed to create-react-app client work 
+create-react-app client
