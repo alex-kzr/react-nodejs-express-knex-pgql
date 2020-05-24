@@ -14,7 +14,12 @@ router.post('/', function(req, res){
     db.insert(req.body).returning('*').into('todo').then(function(data){
         res.send(data);
     });
-    //res.send('hello');
+});
+
+router.patch('/:id', function(req, res){
+    db('todo').where({ id: req.params.id }).update(req.body).returning('*').then(function(data){
+        res.send(data);
+    });    
 });
 
 module.exports = router;
