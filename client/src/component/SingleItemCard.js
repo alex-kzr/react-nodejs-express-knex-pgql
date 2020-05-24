@@ -23,7 +23,7 @@ class SingleItemCard extends Component {
         const { title, isDone } = this.state;
         if(this.state.editing){
             return(
-                <CreateEditItem />
+                <CreateEditItem title = { title } isDone={ isDone } onCancel={ this.onEdit }/>
             );
         }
         return(
