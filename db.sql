@@ -7,3 +7,5 @@ CREATE TABLE todo (
     is_done BOOLEAN);
 
 INSERT INTO todo (title, is_done) VALUES ('first test', false);
+
+ALTER TABLE todo ADD PRIMARY KEY (id);
