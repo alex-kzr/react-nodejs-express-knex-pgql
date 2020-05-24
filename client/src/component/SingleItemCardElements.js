@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleItemCardElements = ({ title, isDone }) => {
+const SingleItemCardElements = ({ title, isDone, onEdit }) => {
     return(
         <div className={`card ${isDone ? 'bg-success' : 'bg-danger'} text-white`}>
             <div className="card-block">
@@ -9,6 +9,10 @@ const SingleItemCardElements = ({ title, isDone }) => {
                 </div>
                 <div className="card-text">
                     { isDone ? 'This todo has been completed' : 'This todo has yet to be finished'}
+                </div>
+                <div className="d-flex justify-content-between ilign-items-end mt-5">
+                    <button className="btn btn-link text-white">Delete</button>
+                    <button className="btn btn-link text-white" onClick={onEdit}>Edit</button>
                 </div>
             </div>
         </div>

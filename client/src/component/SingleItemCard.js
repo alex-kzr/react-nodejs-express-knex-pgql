@@ -9,6 +9,13 @@ class SingleItemCard extends Component {
             title: props.title,
             isDone: props.isDone
         };
+        this.onEdit = this.onEdit.bind(this);
+    }
+
+    onEdit(){
+        this.setState({
+            editing: !this.state.editing
+        });
     }
 
     render(){
@@ -19,7 +26,7 @@ class SingleItemCard extends Component {
             );
         }
         return(
-            <SingleItemCardElements title={title} isDone={isDone} />           
+            <SingleItemCardElements title={title} isDone={isDone} onEdit={this.onEdit} />           
         );
     }
 }
