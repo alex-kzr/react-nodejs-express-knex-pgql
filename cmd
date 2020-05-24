@@ -10,3 +10,6 @@ ALTER USER todo_db_admin PASSWORD '123456';
 
 GRANT ALL PRIVILEGES ON DATABASE todo_db TO todo_db_admin;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO todo_db_admin;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO todo_db_admin;
+
+npm i --save body-parser
