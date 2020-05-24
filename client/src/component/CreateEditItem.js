@@ -9,6 +9,7 @@ class CreateEditItem extends Component{
             isDone: props.isDone || false
         };
         this.onChangeItem = this.onChangeItem.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     onChangeItem(event){
@@ -19,10 +20,27 @@ class CreateEditItem extends Component{
         });
     }
 
+    handleSubmit(event){
+        event.preventDefault();
+        const { title, isDone } = this.state;
+        const { id } = this.props;
+        if(id){
+            axios.put(`/api/todo/${id}`, {
+                title: title,
+                is_done: isDone === 'true'
+            }).then(() => {
+                this.props.updateState(title, isDone === 'true');
+                this.props.toggleEdit();
+            });
+        }else{
+
+        }
+    }
+
     render(){
         const { title, isDone } = this.state;
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label hrmlFor="title">Title fo todo</label>
                     <input name="title" type="text" className="form-control" id="title" value={title} onChange={this.onChangeItem} />
@@ -34,7 +52,7 @@ class CreateEditItem extends Component{
                         <option value="false">No</option>
                     </select>
                     <div className="d-flex justify-content-between align-items-center mt-3">
-                        <button type="button" className="btn btn-danger" onClick={this.props.onCancel}>Cancel</button>
+                        <button type="button" className="btn btn-danger" onClick={this.props.toggleEdit}>Cancel</button>
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </div>

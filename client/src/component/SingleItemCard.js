@@ -11,6 +11,7 @@ class SingleItemCard extends Component {
             isDone: props.isDone
         };
         this.onEdit = this.onEdit.bind(this);
+        this.updateState = this.updateState.bind(this);
     }
 
     onEdit(){
@@ -19,11 +20,18 @@ class SingleItemCard extends Component {
         });
     }
 
+    updateState(title, isDone){
+        this.setState({
+            title: title,
+            isDone: isDone
+        });
+    }
+
     render(){
         const { title, isDone } = this.state;
         if(this.state.editing){
             return(
-                <CreateEditItem title = { title } isDone={ isDone } onCancel={ this.onEdit }/>
+                <CreateEditItem title = { title } isDone={ isDone } toggleEdit={ this.onEdit } id={ this.props.id } updateState={ this.updateState }/>
             );
         }
         return(

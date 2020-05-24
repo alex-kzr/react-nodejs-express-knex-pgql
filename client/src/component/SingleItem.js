@@ -28,7 +28,7 @@ class SingleItem extends Component {
             );
         }
         return(
-            <SingleItemCard title={this.state.todo.title} isDone={this.state.todo.is_done} />
+            <SingleItemCard title={this.state.todo.title} isDone={this.state.todo.is_done} id={this.state.todo.id}/>
         )
     }
 }
