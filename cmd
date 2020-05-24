@@ -22,3 +22,5 @@ npm i --save-dev concurrently
 npm i --save axios
 
 npm i -save http-proxy-middleware // in client directory
+
+npm i --save react-router-dom // in client

@@ -15,7 +15,6 @@ class ItemsBody extends Component {
 
     componentDidMount() {
         axios.get('/api/todo').then(res => {
-            console.log(res);
             this.setState({
                 loading: false,
                 todos: res.data
