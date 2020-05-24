@@ -1,16 +1,18 @@
 import React from 'react';
 import TopNav from './TopNav';
 import ItemsBody from './ItemsBody';
-import { BrowserRouter, Switch, Router } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <TopNav />
-      <div className="container">
-        <ItemsBody />
-      </div>
-    </div>
+      <Switch>        
+        <div className="container">
+          <Route path="/" exact component={ItemsBody} />          
+        </div>
+      </Switch>      
+    </BrowserRouter>
   );
 }
 
