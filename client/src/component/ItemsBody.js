@@ -31,10 +31,18 @@ class ItemsBody extends Component {
         }
         return(
             <ListItems>
-                <ListItem text="Hello" />
+                {this.renderTodos()}
             </ListItems>
         );
-    }    
+    }
+    
+    renderTodos() {
+        return _.map(this.state.todos, todo => {
+            return(
+                <ListItem title={todo.title} isDone={todo.is_done} />
+            );
+        });
+    }
 }
 
 export default ItemsBody;
