@@ -35,7 +35,7 @@ class SingleItemCard extends Component {
             );
         }
         return(
-            <SingleItemCardElements title={title} isDone={isDone} onEdit={this.onEdit} />           
+            <SingleItemCardElements title={title} isDone={isDone} onEdit={this.onEdit} id={this.props.id}/>           
         );
     }
 }
