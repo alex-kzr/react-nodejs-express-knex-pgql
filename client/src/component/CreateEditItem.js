@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class CreateEditItem extends Component{
     constructor(props){
@@ -23,7 +24,7 @@ class CreateEditItem extends Component{
     handleSubmit(event){
         event.preventDefault();
         const { title, isDone } = this.state;
-        const { id } = this.props;
+        const { id, history } = this.props;
         if(id){
             axios.put(`/api/todo/${id}`, {
                 title: title,
@@ -33,7 +34,9 @@ class CreateEditItem extends Component{
                 this.props.toggleEdit();
             });
         }else{
-
+            axios.post('/api/todo', {title: title, is_done: isDone === 'true'}).then(() => {
+                history.push('/');
+            });
         }
     }
 
@@ -61,4 +64,4 @@ class CreateEditItem extends Component{
     }
 }
 
-export default CreateEditItem;
+export default withRouter(CreateEditItem);
