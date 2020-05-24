@@ -11,7 +11,7 @@ class SingleItem extends Component {
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
         const id = this.props.match.params.id;
         axios.get(`/api/todo/${id}`).then(res => {
             this.setState({
@@ -22,14 +22,13 @@ class SingleItem extends Component {
     }
 
     render(){
-        console.log(this.state.todo);
         if(this.state.loading){
             return(
                 <h3>Loading ...</h3>
             );
         }
         return(
-            <SingleItemCard />
+            <SingleItemCard title={this.state.todo.title} isDone={this.state.todo.is_done} />
         )
     }
 }

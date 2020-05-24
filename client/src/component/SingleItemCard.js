@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SingleItemCardElements from './SingleItemCardElements';
 
 class SingleItemCard extends Component {
     constructor(props){
@@ -11,8 +12,14 @@ class SingleItemCard extends Component {
     }
 
     render(){
+        const { title, isDone } = this.state;
+        if(this.state.editing){
+            return(
+                <div>Editing ...</div>
+            );
+        }
         return(
-            <div>Hello cowboy!</div>
+            <SingleItemCardElements title={title} isDone={isDone} />           
         );
     }
 }
