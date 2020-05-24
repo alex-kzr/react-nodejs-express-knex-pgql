@@ -18,3 +18,5 @@ npm install -g create-react-app // -g needed to create-react-app client work
 create-react-app client
 
 npm i --save-dev concurrently
+
+npm i --save axios
